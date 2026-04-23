@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Visa Verification | Republic of Serbia</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .header { background: #003366; color: white; padding: 20px; display: flex; align-items: center; }
+        .header h1 { margin: 0; font-size: 20px; letter-spacing: 1px; }
+        .status-box { padding: 20px; background: #e7f3ef; border-left: 5px solid #28a745; margin: 20px; }
+        .status-text { color: #1e7e34; font-weight: bold; font-size: 18px; }
+        .data-section { padding: 0 20px 20px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .field { border-bottom: 1px solid #eee; padding: 10px 0; }
+        .label { font-size: 11px; color: #666; text-transform: uppercase; margin-bottom: 5px; }
+        .value { font-size: 15px; font-weight: 600; color: #333; }
+        .qr-placeholder { text-align: center; padding: 20px; }
+        @media (max-width: 600px) { .data-section { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>REPUBLIC OF SERBIA</h1>
+                <small>Ministry of Foreign Affairs - Verification Portal</small>
+            </div>
+        </div>
+        <div class="status-box">
+            <div class="label">Current Status</div>
+            <div class="status-text">✓ VISA APPROVED / ОДОБРЕНА ВИЗА</div>
+        </div>
+        <div class="data-section">
+            <div class="field"><div class="label">Full Name</div><div class="value">MUHAMMAD KHAN</div></div>
+            <div class="field"><div class="label">Passport Number</div><div class="value">LM0154192</div></div>
+            <div class="field"><div class="label">Visa ID Number</div><div class="value">DGT303156</div></div>
+            <div class="field"><div class="label">Validity Period</div><div class="value">23/04/2026 to 22/07/2026</div></div>
+            <div class="field"><div class="label">Nationality</div><div class="value">PAKISTANI</div></div>
+            <div class="field"><div class="label">Verification Code</div><div class="value">a15a1170-1566-4418-9d3c-Ja56413</div></div>
+        </div>
+        <div class="qr-placeholder">
+            <p style="font-size: 10px; color: #999;">Scan for digital verification</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=a15a1170-1566-4418-9d3c-Ja56413" alt="QR Code">
+        </div>
+    </div>
+</body>
+</html>
