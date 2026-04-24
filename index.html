@@ -1,304 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eID.gov.rs - Electronic identification portal | Visa Verification</title>
-    <style>
-        : root {
-            --eid-blue: #003366;
-            --eid-light-blue: #f1f4f9;
-            --eid-border: #ccd6e0;
-            --eid-green: #007637;
-            --text-main: #2c3e50;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Republic of Serbia - E-Visa Verification</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    header {
+        background-color: #1f3c88;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    header p {
+        margin: 5px 0 0;
+        font-size: 14px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 30px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .status {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 10px 20px;
+        background: green;
+        color: white;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    h2 {
+        border-bottom: 2px solid #eee;
+        padding-bottom: 8px;
+        margin-top: 25px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .item {
+        background: #fafafa;
+        padding: 12px;
+        border-radius: 5px;
+    }
+
+    .label {
+        font-size: 12px;
+        color: #555;
+    }
+
+    .value {
+        font-weight: bold;
+        margin-top: 4px;
+    }
+
+    footer {
+        text-align: center;
+        font-size: 12px;
+        color: #666;
+        margin-top: 20px;
+    }
+
+    @media(max-width:600px){
+        .grid {
+            grid-template-columns: 1fr;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: var(--text-main);
-        }
-
-        /* Top Bar */
-        .top-language-bar {
-            background-color: var(--eid-blue);
-            colour: white;
-            text-align: right;
-            padding: 8px 10%;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* Header Branding */
-        header {
-            padding: 25px 10%;
-            display: flex;
-            align-items: centre;
-            border-bottom: 1px solid var(--eid-border);
-        }
-
-        .logo-box {
-            width: 45px;
-            height: 45px;
-            border: 2.5px solid var(--eid-blue);
-            border-radius: 50%;
-            display: flex;
-            justify-content: centre;
-            align-items: centre;
-            margin-right: 15px;
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--eid-blue);
-        }
-
-        .branding-text h1 {
-            font-size: 22px;
-            margin: 0;
-            color: var(--eid-blue);
-            letter-spacing: -0.5px;
-        }
-
-        .branding-text p {
-            margin: 0;
-            font-size: 15px;
-            color: #666;
-        }
-
-        /* Nav Menu */
-        nav {
-            background-color: var(--eid-light-blue);
-            padding: 12px 10%;
-            display: flex;
-            gap: 30px;
-            font-size: 14px;
-            font-weight: 500;
-            border-bottom: 1px solid var(--eid-border);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #444;
-            transition: color 0.2s;
-        }
-
-        nav a:hover { color: var(--eid-blue); }
-
-        /* Main Section */
-        .container {
-            padding: 50px 10%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .page-header {
-            font-size: 32px;
-            color: var(--eid-blue);
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        /* Tabs Interface */
-        .tabs {
-            display: flex;
-            border: 1px solid var(--eid-border);
-            margin-bottom: 40px;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 18px;
-            text-align: center;
-            font-size: 14px;
-            background: #fff;
-            color: #666;
-            border-right: 1px solid var(--eid-border);
-        }
-
-        .tab.active {
-            background-color: var(--eid-blue);
-            color: white;
-            font-weight: 600;
-        }
-
-        /* Result Panel */
-        .result-panel {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 50px;
-            background: #fff;
-        }
-
-        .status-badge {
-            background-color: var(--eid-green);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 3px;
-            display: inline-block;
-            font-weight: bold;
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-
-        .data-grid {
-            border-top: 1px solid #eee;
-        }
-
-        .data-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .label {
-            color: #7f8c8d;
-            font-size: 12px;
-            text-transform: uppercase;
-            width: 45%;
-        }
-
-        .label span { display: block; }
-
-        .value {
-            font-weight: 600;
-            font-size: 15px;
-            text-align: right;
-            width: 50%;
-        }
-
-        /* Portrait */
-        .portrait-container {
-            text-align: center;
-        }
-
-        .portrait {
-            width: 200px;
-            height: 250px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .id-ref {
-            margin-top: 15px;
-            font-size: 12px;
-            color: #999;
-            font-family: monospace;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 80px;
-            background-color: var(--eid-light-blue);
-            padding: 40px 10%;
-            border-top: 1px solid var(--eid-border);
-        }
-
-        .footer-content {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .footer-logo { height: 60px; }
-
-        .footer-details { font-size: 12px; color: #777; line-height: 1.8; }
-    </style>
+    }
+</style>
 </head>
+
 <body>
 
-    <div class="top-language-bar">Language / Језик</div>
+<header>
+    <h1>Republic of Serbia</h1>
+    <p>Ministry of Foreign Affairs - Electronic Visa Portal</p>
+</header>
 
-    <header>
-        <div class="logo-box">e</div>
-        <div class="branding-text">
-            <h1>eID.gov.rs</h1>
-            <p>Electronic identification portal</p>
+<div class="container">
+
+    <div class="status">
+        <div class="badge">E-Visa Approved ✅</div>
+    </div>
+
+    <h2>Applicant Information</h2>
+    <div class="grid">
+        <div class="item">
+            <div class="label">Surname</div>
+            <div class="value">MUHAMMAD</div>
         </div>
-    </header>
-
-    <nav>
-        <a href="#">eID</a>
-        <a href="#">Signature in the cloud</a>
-        <a href="#">Help</a>
-        <a href="#">Contact</a>
-        <a href="#">EGovernment portal</a>
-        <a href="#">Back</a>
-    </nav>
-
-    <div class="container">
-        <h1 class="page-header">Verification Status</h1>
-
-        <div class="tabs">
-            <div class="tab">Username and password</div>
-            <div class="tab">Mobile application</div>
-            <div class="tab active">National Visa Records</div>
+        <div class="item">
+            <div class="label">Given Name</div>
+            <div class="value">KHAN</div>
         </div>
-
-        <div class="status-badge">✓ APPROVED / ОДОБРЕНО</div>
-
-        <div class="result-panel">
-            <div class="data-grid">
-                
-                <div class="data-row">
-                    <div class="label"><span>Full Name</span><span>Име и презиме</span></div>
-                    <div class="value">MUHAMMAD KHAN</div>
-                </div>
-
-                <div class="data-row">
-                    <div class="label"><span>Passport Number</span><span>Број путне исправе</span></div>
-                    <div class="value">LM0154192</div>
-                </div>
-
-                <div class="data-row">
-                    <div class="label"><span>Application ID</span><span>ИД апликације</span></div>
-                    <div class="value">60912-42144-49935</div>
-                </div>
-
-                <div class="data-row">
-                    <div class="label"><span>Nationality</span><span>Националност</span></div>
-                    <div class="value">PAKISTAN</div>
-                </div>
-
-                <div class="data-row">
-                    <div class="label"><span>Validity</span><span>Рок важења</span></div>
-                    <div class="value">23/04/2026 - 22/07/2026</div>
-                </div>
-
-                <div class="data-row">
-                    <div class="label"><span>Verification Code</span><span>Код за верификацију</span></div>
-                    <div class="value" style="color:var(--eid-blue);">a15a1170-1566-4418-9d3c-Ja56413</div>
-                </div>
-
-                <div class="data-row">
-                    <div class="label"><span>Duration of Stay</span><span>Трајање боравка</span></div>
-                    <div class="value">90 Days</div>
-                </div>
-
-            </div>
-
-            <div class="portrait-container">
-                <!-- Upload your photo named 'photo.jpg' to the GitHub repo -->
-                <img src="photo.jpg" alt="Muhammad Khan" class="portrait">
-                <div class="id-ref">Visa Ref: DGT303156</div>
-            </div>
+        <div class="item">
+            <div class="label">Date of Birth</div>
+            <div class="value">01/01/1991</div>
+        </div>
+        <div class="item">
+            <div class="label">Gender</div>
+            <div class="value">MALE</div>
+        </div>
+        <div class="item">
+            <div class="label">Nationality</div>
+            <div class="value">PAKISTANI</div>
+        </div>
+        <div class="item">
+            <div class="label">Passport Number</div>
+            <div class="value">LM0154192</div>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Coat_of_arms_of_Serbia.svg/100px-Coat_of_arms_of_Serbia.svg.png" class="footer-logo">
-            <div class="footer-details">
-                <strong>Republic of Serbia</strong><br>
-                Ministry of Foreign Affairs - Digital Department<br>
-                The website is licensed under the terms of the Creative Commons Attribution 3.0 Serbia.<br>
-                Web project maintained by ite.gov.rs
-            </div>
+    <h2>Visa Details</h2>
+    <div class="grid">
+        <div class="item">
+            <div class="label">Visa ID Number</div>
+            <div class="value">DGT303156</div>
         </div>
+        <div class="item">
+            <div class="label">Verification Code</div>
+            <div class="value">a15a1170-1566-4418-9d3c-Ja56413</div>
+        </div>
+        <div class="item">
+            <div class="label">Validity</div>
+            <div class="value">23/04/2026 to 22/07/2026</div>
+        </div>
+        <div class="item">
+            <div class="label">مدة الإقامة (Duration of Stay)</div>
+            <div class="value">90 Days</div>
+        </div>
+        <div class="item">
+            <div class="label">Entries</div>
+            <div class="value">Single Entry</div>
+        </div>
+        <div class="item">
+            <div class="label">Approval Date</div>
+            <div class="value">24/04/2026</div>
+        </div>
+    </div>
+
+    <h2>Application Details</h2>
+    <div class="grid">
+        <div class="item">
+            <div class="label">Application ID</div>
+            <div class="value">60912-42144-49935</div>
+        </div>
+        <div class="item">
+            <div class="label">Date of Registration</div>
+            <div class="value">23/04/2026</div>
+        </div>
+    </div>
+
+    <h2>Important Notice</h2>
+    <p style="font-size:14px; color:#444;">
+        • The electronic visa must be presented at the border in printed or digital form.<br><br>
+        • The visa is valid only when used with a valid travel document.<br><br>
+        • The applicant is responsible for the correctness of the provided information.<br><br>
+        • QR code data is for internal use only.
+    </p>
+
+    <footer>
+        © Republic of Serbia – Ministry of Foreign Affairs | Official E-Visa System
     </footer>
+
+</div>
 
 </body>
 </html>
