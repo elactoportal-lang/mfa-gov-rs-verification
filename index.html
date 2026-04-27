@@ -3,216 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E-Visa Verification – Sample Portal</title>
+<title>E-Visa Verification System</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: "Segoe UI", Arial, sans-serif;
-        background: #eef2f7;
-    }
+body { font-family: Arial; background:#eef2f7; margin:0; }
 
-    /* HEADER */
-    .top-bar {
-        background: #0b3d91;
-        colour: white;
-        padding: 10px 20px;
-        font-size: 13px;
-    }
+/* HEADER */
+header {
+    background:#0b3d91;
+    color:white;
+    padding:15px 30px;
+    font-size:18px;
+}
 
-    header {
-        background: white;
-        display: flex;
-        align-items: centre;
-        justify-content: space-between;
-        padding: 15px 30px;
-        border-bottom: 2px solid #e5e5e5;
-    }
+/* BOX */
+.container {
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
 
-    .logo-area {
-        display: flex;
-        align-items: centre;
-        gap: 15px;
-    }
+/* INPUT */
+input {
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
 
-    .logo-area img {
-        height: 50px;
-    }
+/* BUTTON */
+button {
+    background:#0b3d91;
+    color:white;
+    padding:12px;
+    border:none;
+    border-radius:5px;
+    width:100%;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-    .title {
-        font-size: 18px;
-        font-weight: bold;
-        color: #0b3d91;
-    }
+/* STATUS */
+.status {
+    text-align:center;
+    margin:20px 0;
+    font-size:18px;
+}
 
-    .subtitle {
-        font-size: 13px;
-        color: #555;
-    }
+.success { color:green; font-weight:bold; }
+.error { color:red; font-weight:bold; }
 
-    /* CONTAINER */
-    .container {
-        max-width: 950px;
-        margin: 30px auto;
-        background: white;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        position: relative;
-    }
+/* DATA */
+.grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
 
-    /* PHOTO */
-    .photo {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-    }
+.item {
+    background:#f9fafc;
+    padding:10px;
+    border-radius:5px;
+}
 
-    .photo img {
-        width: 110px;
-        height: 130px;
-        object-fit: cover;
-        border-radius: 6px;
-        border: 2px solid #ccc;
-    }
+.label { font-size:12px; color:#666; }
+.value { font-weight:bold; }
 
-    /* STATUS */
-    .status {
-        text-align: center;
-        margin-bottom: 20px;
-    }
+.photo {
+    position:absolute;
+    right:20px;
+    top:20px;
+}
 
-    .status span {
-        background: #2ecc71;
-        colour: white;
-        padding: 10px 25px;
-        border-radius: 5px;
-        font-weight: bold;
-        font-size: 16px;
-    }
+.photo img {
+    width:100px;
+    height:120px;
+    border-radius:5px;
+    border:2px solid #ccc;
+}
 
-    h2 {
-        border-bottom: 2px solid #eee;
-        padding-bottom: 6px;
-        margin-top: 30px;
-        color: #333;
-    }
+.result-box {
+    position:relative;
+    margin-top:20px;
+}
 
-    .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 15px;
-    }
-
-    .item {
-        background: #f9fafc;
-        padding: 12px;
-        border-radius: 6px;
-    }
-
-    .label {
-        font-size: 12px;
-        color: #666;
-    }
-
-    .value {
-        font-weight: bold;
-        margin-top: 4px;
-        color: #222;
-    }
-
-    /* FOOTER */
-    footer {
-        margin-top: 40px;
-        background: #0b3d91;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        font-size: 13px;
-    }
-
-    footer img {
-        height: 35px;
-        margin-bottom: 8px;
-    }
-
-    @media(max-width:700px){
-        .grid { grid-template-columns: 1fr; }
-        .photo { position: static; text-align: center; margin-bottom: 15px; }
-    }
+@media(max-width:700px){
+    .grid { grid-template-columns:1fr; }
+}
 </style>
 
 </head>
 
 <body>
 
-<div class="top-bar">
-    Electronic Visa Verification System – Demo Interface
-</div>
-
 <header>
-    <div class="logo-area">
-        <!-- Replace with real logo image -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Coat_of_arms_of_Serbia.svg/120px-Coat_of_arms_of_Serbia.svg.png">
-        <div>
-            <div class="title">Electronic Visa Portal</div>
-            <div class="subtitle">Ministry of Foreign Affairs – Demo Layout</div>
-        </div>
-    </div>
+Manistory of Serbia
+E-Visa Verification System
 </header>
 
 <div class="container">
 
-    <!-- PHOTO -->
-    <div class="photo">
-        <!-- Replace with applicant image -->
-        <img src="https://via.placeholder.com/110x130">
-    </div>
+<h2>Check Your Visa</h2>
 
-    <!-- STATUS -->
-    <div class="status">
-        <span>✔ VISA APPROVED</span>
-    </div>
+<input type="text" id="appId" placeholder="Enter Application ID">
+<input type="text" id="code" placeholder="Enter Verification Code">
 
-    <h2>Applicant Information</h2>
-    <div class="grid">
-        <div class="item"><div class="label">Surname</div><div class="value">MUHAMMAD</div></div>
-        <div class="item"><div class="label">Given Name</div><div class="value">KHAN</div></div>
-        <div class="item"><div class="label">Date of Birth</div><div class="value">01/01/1991</div></div>
-        <div class="item"><div class="label">Gender</div><div class="value">MALE</div></div>
-        <div class="item"><div class="label">Nationality</div><div class="value">PAKISTANI</div></div>
-        <div class="item"><div class="label">Passport Number</div><div class="value">LM0154192</div></div>
-    </div>
+<button onclick="checkVisa()">Verify Visa</button>
 
-    <h2>Visa Details</h2>
-    <div class="grid">
-        <div class="item"><div class="label">Visa ID</div><div class="value">DGT303156</div></div>
-        <div class="item"><div class="label">Verification Code</div><div class="value">a15a1170-1566-4418</div></div>
-        <div class="item"><div class="label">Validity</div><div class="value">23/04/2026 – 22/07/2026</div></div>
-        <div class="item"><div class="label">Stay Duration</div><div class="value">90 Days</div></div>
-        <div class="item"><div class="label">Entries</div><div class="value">Single Entry</div></div>
-        <div class="item"><div class="label">Approval Date</div><div class="value">24/04/2026</div></div>
-    </div>
+<div id="status" class="status"></div>
 
-    <h2>Application Details</h2>
-    <div class="grid">
-        <div class="item"><div class="label">Application ID</div><div class="value">60912-42144-49935</div></div>
-        <div class="item"><div class="label">Registration Date</div><div class="value">23/04/2026</div></div>
-    </div>
-
-    <h2>Notice</h2>
-    <p style="font-size:14px; color:#444;">
-        This page is a demonstration interface. Always carry your visa and valid travel documents when travelling.
-    </p>
+<div id="result" class="result-box"></div>
 
 </div>
 
-<footer>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Coat_of_arms_of_Serbia.svg/120px-Coat_of_arms_of_Serbia.svg.png"><br>
-    Electronic Visa System – Sample Project Interface<br>
-    © 2026 Demo Government Style UI
-</footer>
+<script>
+
+/* DATABASE */
+const visas = [
+{
+    applicationId: "50912-42144-49935",
+    code: "a14a1170-1566-4418-9d3c-Ja56413",
+
+    surname: "MUHAMMAD",
+    name: "KHAN",
+    dob: "01/01/1991",
+    gender: "MALE",
+    nationality: "PAKISTANI",
+    passport: "LM0154193",
+
+    visaId: "DGT303156",
+    validity: "27/04/2026 - 26/07/2026",
+    stay: "90 Days",
+    entries: "Single Entry",
+    approval: "27/04/2026",
+
+    photo: "https://via.placeholder.com/100x120"
+}
+];
+
+/* FUNCTION */
+function checkVisa() {
+
+    const appId = document.getElementById("appId").value.trim();
+    const code = document.getElementById("code").value.trim();
+
+    const resultDiv = document.getElementById("result");
+    const statusDiv = document.getElementById("status");
+
+    const visa = visas.find(v => v.applicationId === appId && v.code === code);
+
+    if(visa){
+
+        statusDiv.innerHTML = "<span class='success'>✔ VISA APPROVED</span>";
+
+        resultDiv.innerHTML = `
+        <div class="photo">
+            <img src="${visa.photo}">
+        </div>
+
+        <h3>Applicant Information</h3>
+        <div class="grid">
+            <div class="item"><div class="label">Surname</div><div class="value">${visa.surname}</div></div>
+            <div class="item"><div class="label">Name</div><div class="value">${visa.name}</div></div>
+            <div class="item"><div class="label">DOB</div><div class="value">${visa.dob}</div></div>
+            <div class="item"><div class="label">Gender</div><div class="value">${visa.gender}</div></div>
+            <div class="item"><div class="label">Nationality</div><div class="value">${visa.nationality}</div></div>
+            <div class="item"><div class="label">Passport</div><div class="value">${visa.passport}</div></div>
+        </div>
+
+        <h3>Visa Details</h3>
+        <div class="grid">
+            <div class="item"><div class="label">Visa ID</div><div class="value">${visa.visaId}</div></div>
+            <div class="item"><div class="label">Validity</div><div class="value">${visa.validity}</div></div>
+            <div class="item"><div class="label">Stay</div><div class="value">${visa.stay}</div></div>
+            <div class="item"><div class="label">Entries</div><div class="value">${visa.entries}</div></div>
+            <div class="item"><div class="label">Approval</div><div class="value">${visa.approval}</div></div>
+        </div>
+        `;
+
+    } else {
+
+        statusDiv.innerHTML = "<span class='error'>❌ No Record Found</span>";
+        resultDiv.innerHTML = "";
+
+    }
+}
+
+</script>
 
 </body>
 </html>
